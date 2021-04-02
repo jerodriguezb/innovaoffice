@@ -1,8 +1,9 @@
 
 let productos= JSON.parse(localStorage.getItem("productos")) || [];
 let carrito= JSON.parse(localStorage.getItem("carrito")) || [];
+let baseFooter = JSON.parse(localStorage.getItem("footer")) || [];
 let contenedor=document.querySelector("#contenedor");
-let contenedor2=document.querySelector("#contenedor2");
+// let contenedor2=document.querySelector("#contenedor2");
 
 class Producto {
 
@@ -17,6 +18,23 @@ class Producto {
     }
 
 }
+
+class Pie {
+
+    constructor(email,telfijo,telcelular,domicilio,social1,social2,social3) {
+
+        this.email=email;
+        this.telfijo=telfijo;
+        this.telcelular=telcelular;
+        this.domicilio=domicilio;
+        this.social1=social1;  
+        this.social2=social2;
+        this.social3=social3; 
+
+    }
+
+}
+
 
 function agregarProductos() {
 
@@ -76,6 +94,22 @@ function agregarProductosCarrito(codigo) {
 
 }
 
+function agregaFooter() {
+
+    
+
+     let h3=document.createElement("h3") // crea un elem como una etiqueta je h3
+
+     h3.innerText()="soy un h3 recien creado" // le asigne un txt
+
+     document.body.appendChild(h3)
+
+    //let parrafo1=document.querySelector("#parrafo1");
+    //parrafo1.innerText("esto es una prueba ssss");
+   
+}
+
+
 
 // function limpiarLista() {
 
@@ -86,3 +120,4 @@ function agregarProductosCarrito(codigo) {
 
 
 cargaCard();
+agregaFooter();
