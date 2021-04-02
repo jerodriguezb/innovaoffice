@@ -3,7 +3,7 @@ let productos= JSON.parse(localStorage.getItem("productos")) || [];
 let carrito= JSON.parse(localStorage.getItem("carrito")) || [];
 let baseFooter = JSON.parse(localStorage.getItem("footer")) || [];
 let contenedor=document.querySelector("#contenedor");
-// let contenedor2=document.querySelector("#contenedor2");
+let contenedor2=document.querySelector("#contenedor2");
 
 class Producto {
 
