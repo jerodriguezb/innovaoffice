@@ -3,7 +3,7 @@ let productos= JSON.parse(localStorage.getItem("productos")) || [];
 let carrito= JSON.parse(localStorage.getItem("carrito")) || [];
 let baseFooter = JSON.parse(localStorage.getItem("footer")) || [];
 let contenedor=document.querySelector("#contenedor");
-let contenedor2=document.querySelector("#contenedor2");
+//let contenedor2=document.querySelector("#contenedor2");
 
 class Producto {
 
@@ -55,15 +55,15 @@ function cargaCard() {
         <img src="${productos[i].imagen}" class="card-img-top" alt="${productos[i].nombre}">
         <div class="card-body">
           <h5 class="card-title">${productos[i].nombre}</h5>
+          <h6 class="card-title">Stock: ${productos[i].stock}</h6>
           <p class="card-text">Precio: $${productos[i].precio}</p>
-          <a class="btn btn-info" onclick="agregarProductosCarrito(${productos[i].codigo})"> Agregar a carrito </a>
+          <a class="btn btn-info" onclick="agregarProductosCarrito(${productos[i].codigo})"> + </a>
         </div>
       </div> `
       contenedor.appendChild(div);
 
     }
 }
-
 
 function agregarProductosCarrito(codigo) {
 
@@ -94,20 +94,20 @@ function agregarProductosCarrito(codigo) {
 
 }
 
-function agregaFooter() {
+// function agregaFooter() {
 
     
 
-     let h3=document.createElement("h3") // crea un elem como una etiqueta je h3
+//      let h3=document.createElement("h3") // crea un elem como una etiqueta je h3
 
-     h3.innerText()="soy un h3 recien creado" // le asigne un txt
+//      h3.innerText()="soy un h3 recien creado" // le asigne un txt
 
-     document.body.appendChild(h3)
+//      document.body.appendChild(h3)
 
-    //let parrafo1=document.querySelector("#parrafo1");
-    //parrafo1.innerText("esto es una prueba ssss");
+//     //let parrafo1=document.querySelector("#parrafo1");
+//     //parrafo1.innerText("esto es una prueba ssss");
    
-}
+// }
 
 
 
