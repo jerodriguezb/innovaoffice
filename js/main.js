@@ -73,7 +73,7 @@ function agregarProductosCarrito(codigo) {
     });
     if (productos[indexProd].stock >= 1) {
 
-            productos[indexProd]-=1;
+            productos[indexProd].stock-=1;
         
         carrito.push ({
 
@@ -96,6 +96,8 @@ function agregarProductosCarrito(codigo) {
 
         localStorage.setItem("carrito", JSON.stringify(carrito));
         localStorage.setItem("productos", JSON.stringify(productos));
+
+        contenedor.innerHTML="";
         cargaCard();
         } else {
             alert ("No hay disponibilidad del producto");
