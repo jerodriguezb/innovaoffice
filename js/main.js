@@ -19,28 +19,28 @@ class Producto {
 
 }
 
-class Pie {
+// class Pie {
 
-    constructor(email,telfijo,telcelular,domicilio,social1,social2,social3) {
+//     constructor(email,telfijo,telcelular,domicilio,social1,social2,social3) {
 
-        this.email=email;
-        this.telfijo=telfijo;
-        this.telcelular=telcelular;
-        this.domicilio=domicilio;
-        this.social1=social1;  
-        this.social2=social2;
-        this.social3=social3; 
+//         this.email=email;
+//         this.telfijo=telfijo;
+//         this.telcelular=telcelular;
+//         this.domicilio=domicilio;
+//         this.social1=social1;  
+//         this.social2=social2;
+//         this.social3=social3; 
 
-    }
+//     }
 
-}
+// }
 
 
-function agregarProductos() {
+function agregarProductos1() {
 
-    productos.push(new Producto("1","http://conceptoffice.com.ar/images/conceptoffice/muebles/premium/mueble-gerencial-premium-4.jpg","Escritorio Ejecutivos",43000.00,2));
-    productos.push(new Producto("2","http://conceptoffice.com.ar/media/widgetkit/elam-director-05-bfc3fba3da9d6541d012606d98f39121.jpg","Silla Director",11500.00,9));
-    productos.push(new Producto("3","http://conceptoffice.com.ar/images/conceptoffice/mesas-de-reunion/focus/mesa-reunion-focus.jpg","Mesa de Reunion",68500.00,1));
+    productos.push(new Producto(1,"http://conceptoffice.com.ar/images/conceptoffice/muebles/premium/mueble-gerencial-premium-4.jpg","Escritorio Ejecutivos",43000,2));
+    productos.push(new Producto(2,"http://conceptoffice.com.ar/media/widgetkit/elam-director-05-bfc3fba3da9d6541d012606d98f39121.jpg","Silla Director",11500,9));
+    productos.push(new Producto(3,"http://conceptoffice.com.ar/images/conceptoffice/mesas-de-reunion/focus/mesa-reunion-focus.jpg","Mesa de Reunion",68500,1));
     localStorage.setItem("productos", JSON.stringify(productos));
     return;
     
@@ -50,7 +50,7 @@ function cargaCard() {
 
     for (let i = 0; i < productos.length; i++) {  //revisar
         let div=document.createElement("div");
-        div.classList="col";
+        div.classList="col-sm-2 col-md-9 col-lg-6";
         div.innerHTML=` <div class="card">
         <img src="${productos[i].imagen}" class="card-img-top" alt="${productos[i].nombre}">
         <div class="card-body">
@@ -59,7 +59,7 @@ function cargaCard() {
           <p class="card-text">Precio: $${productos[i].precio}</p>
           <a class="btn btn-info" onclick="agregarProductosCarrito(${productos[i].codigo})"> Carrito </a>
         </div>
-      </div> `
+      </div> ` 
       contenedor.appendChild(div);
 
     }
@@ -67,19 +67,23 @@ function cargaCard() {
 
 function agregarProductosCarrito(codigo) {
 
-    let producto=productos.find(function(produc) {
-    return produc.codigo == codigo;
+    let indexProd=productos.findIndex(function(produc) {
+    return produc.codigo === codigo;
 
     });
-    carrito.push ({
+    if (productos[indexProd].stock >= 1) {
 
-        codigo: producto.codigo,
-        imagen: producto.imagen,
-        nombre: producto.nombre,
-        precio: producto.precio,
-        stock: producto.stock,
+            productos[indexProd]-=1;
+        
+        carrito.push ({
 
-    });
+            codigo: productos[indexProd].codigo,
+            imagen: productos[indexProd].imagen,
+            nombre: productos[indexProd].nombre,
+            precio: productos[indexProd].precio,
+            stock: 1,
+
+        });
         // let div=document.createElement("div");
         // div.classList="col";
         // div.innerHTML=` <a href="#" class="list-group-item list-group-item-action">
@@ -89,8 +93,13 @@ function agregarProductosCarrito(codigo) {
         //   <a class="btn btn-warning" onclick="eliminaElemento()">Eliminar</a>
         // </div> </a> `
         // contenedor2.appendChild(div);
-      
-      //localStorage.setItem("carrito", JSON.stringify(carrito));
+
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        localStorage.setItem("productos", JSON.stringify(productos));
+        cargaCard();
+        } else {
+            alert ("No hay disponibilidad del producto");
+        }
 
 }
 
@@ -121,6 +130,6 @@ function agregarProductosCarrito(codigo) {
 // }
 
 
-cargaCard();
+//cargaCard();
 
 //agregaFooter();
