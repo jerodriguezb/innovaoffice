@@ -1,7 +1,7 @@
 
 let productos= JSON.parse(localStorage.getItem("productos")) || [];
 let carrito= JSON.parse(localStorage.getItem("carrito")) || [];
-let baseFooter = JSON.parse(localStorage.getItem("footer")) || [];
+// let baseFooter = JSON.parse(localStorage.getItem("footer")) || [];
 let contenedor=document.querySelector("#contenedor");
 //let contenedor2=document.querySelector("#contenedor2");
 
@@ -57,7 +57,7 @@ function cargaCard() {
           <h5 class="card-title">${productos[i].nombre}</h5>
           <h6 class="card-title">Stock: ${productos[i].stock}</h6>
           <p class="card-text">Precio: $${productos[i].precio}</p>
-          <a class="btn btn-info" onclick="agregarProductosCarrito(${productos[i].codigo})"> + </a>
+          <a class="btn btn-info" onclick="agregarProductosCarrito(${productos[i].codigo})"> Carrito </a>
         </div>
       </div> `
       contenedor.appendChild(div);
@@ -94,6 +94,8 @@ function agregarProductosCarrito(codigo) {
 
 }
 
+
+
 // function agregaFooter() {
 
     
@@ -120,4 +122,5 @@ function agregarProductosCarrito(codigo) {
 
 
 cargaCard();
-agregaFooter();
+
+//agregaFooter();
