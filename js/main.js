@@ -73,17 +73,32 @@ function agregarProductosCarrito(codigo) {
     });
     if (productos[indexProd].stock >= 1) {
 
-            productos[indexProd].stock-=1;
+        productos[indexProd].stock-=1;
+
+        let indexCarr=carrito.findIndex(function(produc) {
+            return produc.codigo === codigo;
         
+            });
+
+        if (indexCarr >=0) {
+
+            carrito[indexCarr].cantidad+=1;
+            carrito[indexCarr].precio= carrito[indexCarr].precio*2
+        } else {
+
         carrito.push ({
 
             codigo: productos[indexProd].codigo,
             imagen: productos[indexProd].imagen,
             nombre: productos[indexProd].nombre,
             precio: productos[indexProd].precio,
-            stock: 1,
+            cantidad: 1,
 
         });
+
+        }
+
+        
         // let div=document.createElement("div");
         // div.classList="col";
         // div.innerHTML=` <a href="#" class="list-group-item list-group-item-action">
@@ -97,8 +112,10 @@ function agregarProductosCarrito(codigo) {
         localStorage.setItem("carrito", JSON.stringify(carrito));
         localStorage.setItem("productos", JSON.stringify(productos));
 
+        // Recarga Pantalla (Reset)
         contenedor.innerHTML="";
         cargaCard();
+
         } else {
             alert ("No hay disponibilidad del producto");
         }
