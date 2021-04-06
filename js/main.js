@@ -1,9 +1,10 @@
 
 let productos= JSON.parse(localStorage.getItem("productos")) || [];
 let carrito= JSON.parse(localStorage.getItem("carrito")) || [];
-// let baseFooter = JSON.parse(localStorage.getItem("footer")) || [];
 let contenedor=document.querySelector("#contenedor");
-//let contenedor2=document.querySelector("#contenedor2");
+
+// let baseFooter = JSON.parse(localStorage.getItem("footer")) || [];
+let contenedor2=document.querySelector("#contenedor2");
 
 class Producto {
 
@@ -19,23 +20,6 @@ class Producto {
 
 }
 
-// class Pie {
-
-//     constructor(email,telfijo,telcelular,domicilio,social1,social2,social3) {
-
-//         this.email=email;
-//         this.telfijo=telfijo;
-//         this.telcelular=telcelular;
-//         this.domicilio=domicilio;
-//         this.social1=social1;  
-//         this.social2=social2;
-//         this.social3=social3; 
-
-//     }
-
-// }
-
-
 function agregarProductos1() {
 
     productos.push(new Producto(1,"http://conceptoffice.com.ar/images/conceptoffice/muebles/premium/mueble-gerencial-premium-4.jpg","Escritorio Ejecutivos",43000,2));
@@ -46,9 +30,22 @@ function agregarProductos1() {
     
 }
 
+function cantidadCarrito() {
+    
+    let sumaCantidad=0;
+    for (let i = 0; i < carrito.length; i++) {
+        
+        sumaCantidad+=carrito[i].cantidad;
+        
+    }
+
+    document.write(`Cantidad en Carrito: ${sumaCantidad}`);
+    
+}
+
 function cargaCard() {
 
-    for (let i = 0; i < productos.length; i++) {  //revisar
+    for (let i = 0; i < productos.length; i++) { 
         let div=document.createElement("div");
         div.classList="col-sm-2 col-md-9 col-lg-6";
         div.innerHTML=` <div class="card">
@@ -97,36 +94,31 @@ function agregarProductosCarrito(codigo) {
         });
 
         }
-
-        
-        // let div=document.createElement("div");
-        // div.classList="col";
-        // div.innerHTML=` <a href="#" class="list-group-item list-group-item-action">
-        // <div class="d-flex w-100 justify-content-between">
-        //   <h6 class="mb-1"> ${producto.nombre} </h6>
-        //   <small> ${producto.precio} </small>
-        //   <a class="btn btn-warning" onclick="eliminaElemento()">Eliminar</a>
-        // </div> </a> `
-        // contenedor2.appendChild(div);
-
+      
         localStorage.setItem("carrito", JSON.stringify(carrito));
         localStorage.setItem("productos", JSON.stringify(productos));
-
-        // Recarga Pantalla (Reset)
-        contenedor.innerHTML="";
-        cargaCard();
-
+       
         } else {
             alert ("No hay disponibilidad del producto");
         }
 
+         // Recarga Pantalla (Reset)
+         contenedor.innerHTML="";
+        
+         cantidadCarrito();
+        cargaCard();
+ 
+
 }
 
+cargaCard();
+cantidadCarrito();
 
+
+//cargaCard();
+//agregaFooter();
 
 // function agregaFooter() {
-
-    
 
 //      let h3=document.createElement("h3") // crea un elem como una etiqueta je h3
 
@@ -139,8 +131,6 @@ function agregarProductosCarrito(codigo) {
    
 // }
 
-
-
 // function limpiarLista() {
 
 //     contenedor2.innerHTML=""; // queda vacio el contenedor
@@ -148,7 +138,28 @@ function agregarProductosCarrito(codigo) {
 //     carrito.splice(0,carrito.length);
 // }
 
+// class Pie {
 
-//cargaCard();
+//     constructor(email,telfijo,telcelular,domicilio,social1,social2,social3) {
 
-//agregaFooter();
+//         this.email=email;
+//         this.telfijo=telfijo;
+//         this.telcelular=telcelular;
+//         this.domicilio=domicilio;
+//         this.social1=social1;  
+//         this.social2=social2;
+//         this.social3=social3; 
+
+//     }
+
+// }
+
+// let div=document.createElement("div");
+        // div.classList="col";
+        // div.innerHTML=` <a href="#" class="list-group-item list-group-item-action">
+        // <div class="d-flex w-100 justify-content-between">
+        //   <h6 class="mb-1"> ${producto.nombre} </h6>
+        //   <small> ${producto.precio} </small>
+        //   <a class="btn btn-warning" onclick="eliminaElemento()">Eliminar</a>
+        // </div> </a> `
+        // contenedor2.appendChild(div);
