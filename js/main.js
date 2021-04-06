@@ -42,13 +42,10 @@ function cantidadCarrito() {
     
     contenedor2.innerHTML="";
     let div=document.createElement("div");
- 
     //div.classList="col-sm-2 col-md-9 col-lg-6";
     div.innerHTML=`<h5> Cantidad Carrito: ${sumaCantidad} </h5>` 
     contenedor2.appendChild(div);
-    
-    // document.write(`Cantidad en Carrito: ${sumaCantidad}`);
-    
+     
 }
 
 function cargaCard() {
@@ -119,8 +116,7 @@ function agregarProductosCarrito(codigo) {
 
 }
 
-
-cantidadCarrito();
+cantidadCarrito(); // esta en el header;
 cargaCard();
 
 
