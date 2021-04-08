@@ -1,0 +1,36 @@
+.imgCard {
+  width: 224px;
+  height: 224px;
+  align-self: center;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  /* align-content: space-around; */
+  align-items: center;
+}
+.card-footer p {
+  margin-bottom: 0;
+}
+
+.imgenCarrito {
+  width: 150px;
+  object-fit: contain;
+}
+
+.boton-true {
+  color: green;
+  text-decoration: none;
+}
+.boton-true:hover {
+  color: green;
+}
+
+.boton-false {
+  color: rgb(84, 85, 84);
+  text-decoration: none;
+}
+.boton-false:hover {
+  color: rgb(84, 85, 84);
+}
