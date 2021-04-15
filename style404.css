@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Hanalei', cursive;
+    font-family: 'Londrina Solid', cursive;
+}
+
+
+/* main {
+  display: flex;
+  font-size: 1.5rem;
+  background-color: rgba(5, 9, 22, 0.466);
+  min-height: 10vh;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-right: 2rem;
+  position: sticky;
+  top: 0;
+} */
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 30rem;
+    background: white;
+}
+
+#error {
+    margin-top: 1rem;
+    width: 90%;
+    min-width: 30rem;
+    border-radius: 1rem;
+    margin-bottom: 3rem;
+}
+
+#error .Imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#error img {
+    width: 80rem;
+    height: 42rem;
+}
+
+.Imagen p {
+    color: white;
+    font-size: 3.0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkolivegreen;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.texto-card {
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: rgb(245, 239, 239);
+}
+
+footer {
+    width: 100%;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkolivegreen;
+    height: 15rem;
+}
+
+.footer p {
+    font-size: 3rem;
+    color: greenyellow;
+}
+
+.footer a {
+    margin-left: 1.5rem;
+    font-size: 2rem;
+    color: white;
+}
+
+@media (min-width: 768px) {
+    /*tamaño de letra del header 20px*/
+}
