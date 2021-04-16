@@ -1,14 +1,83 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar */
+.nav-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.bg {
+  background-color: transparent;
+  transition: all 1s ease;
+}
+
+.bg.scrolled {
+  background-color: darkolivegreen;
 }
 
 
+/* Carrusel */
+.h4 {
+  font-family: Roboto Condensed, sans-serif;
+}
 
 
+/* Empresa */
+.row {
+  font-family: Roboto Condensed, sans-serif;
+}
+
+.estilo {
+  font-family: Roboto Condensed, sans-serif;
+}
 
 
+/* Formulario */
+.imgCard {
+  width: 224px;
+  height: 224px;
+  align-self: center;
+}
 
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-content: space-around;
+  align-items: center;
+}
+.card-footer p {
+  margin-bottom: 0;
+}
 
+.boton-true {
+  color: green;
+  text-decoration: none;
+}
+.boton-true:hover {
+  color: green;
+}
 
+.boton-false {
+  color: rgb(84, 85, 84);
+  text-decoration: none;
+}
+.boton-false:hover {
+  color: rgb(84, 85, 84);
+}
+
+/* Whatsapp */
+.WhatsApp {
+  position: fixed;
+  bottom: 4rem;
+  right: 0;
+  z-index: 98;
+}
+
+.WhatsApp img {
+  height: 4rem;
+  z-index: 99;
+}
