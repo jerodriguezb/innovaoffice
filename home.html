@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="./css/estilo.css" />
+    <link rel="stylesheet" href="./css/error404.css">
+    <title>In-Nova|Office Productos</title>
+
+    <!-- Email.js -->
+
+    <!-- Cargar el código que nos da EmailJS -->
+    <!-- <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        
+        emailjs.init(" el usuario id que te entrega Emailjs");
+      })();
+    </script> -->
+
+    <!-- -------------------------------------- -->
+  </head>
+  <body id="body">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">In-Nova|Office</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav">
+              <!-- <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li> -->
+              <li class="nav-item">
+                <button
+                  id="verCarrito"
+                  type="button"
+                  class="btn btn-primary mr-3"
+                  onclick="verCarrito()"
+                >
+                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                  <span id="countCarrito" class="badge badge-light"></span>
+                </button>
+              </li>
+              <li>
+                <a href="login.html"
+                  ><i
+                    class="fa fa-sign-out fa-2x text-white"
+                    aria-hidden="true"
+                  ></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>Productos</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-md-4 offset-md-4">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="textSearch"
+              aria-label="Recipient's username"
+              aria-describedby="button-addon2"
+            />
+            <div class="input-group-append">
+              <button
+                class="btn btn-outline-info"
+                type="button"
+                onclick="buscarProducto()"
+                id="button-addon2"
+              >
+                Buscar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <div class="card-deck" id="contenedor"></div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div
+      class="modal fade"
+      id="modalCarrito"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Carrito de compras
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">...</div>
+            <div class="modal-footer">
+              <span>Total: </span><span id="totalCarrito"></span>
+              <button
+              type="button"
+                class="btn btn-success"
+                data-dismiss="modal"
+                id="btnComprar"
+                >
+                Comprar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="container">
+        <hr color="#00293C">
+    </div>
+    <section id="contacto" class="p-4">
+      <div class="container">
+        <div class="row">
+              <div class="col text-center">
+                  <h2><b>Productos In-Novarte|Office</b></h2>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col text-center" style="font-family: 'Roboto Condensed', sans-serif;">
+                  Complete el formulario para consultar sobre este producto.
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 mt-4">
+                  <form>
+                      <div class="form-row">
+                          <div class="form-group col-12 col-md-6">
+                              <input type="text" class="form-control" placeholder="Nombre" />
+                          </div>
+                          <div class="form-group col-12 col-md-6">
+                              <input class="form-control" type="text" placeholder="Apellido..." required />
+                          </div>
+                          <div class="form-group col-12 col-md-6">
+                              <input type="text" class="form-control" placeholder="Email" />
+                          </div>
+                          <div class="form-group col-12 col-md-6">
+                              <input type="text" class="form-control" placeholder="Telefono" />
+                          </div>
+                      </div>
+                      <div class="form-row">
+                          <div class="form-group col">
+                              <textarea placeholder="Dejanos tu consulta" class="form-control form-control-lg" required rows="3"></textarea>
+                          </div>
+                      </div>
+                      <div class="form-row">
+                          <div class="col">
+                              <button type="submit" class="btn btn-block text-white" style="background-color: darkolivegreen">
+                                  Enviar
+                              </button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <div class="WhatsApp">
+    <a href="Pagina404.html" >
+        <img src="./img/icon-wsp.png" alt="logo WSP" />
+    </a>
+</div>
+<!-- fin de imagen de wsp -->
+
+  <!-- Fin de Formulario-->
+    <div class="container">
+      <hr color="#00293C">
+  </div>
+    <!--Inicio de Footer-->
+    <footer class="text-center footer-style py-3 mt-3" id="footer">
+      <div class="container-fluid">
+          <div class="row px-5">
+              <div class="col-sm-12 col-md-2 col-lg-2 text-center pt-3 ">
+                  <p class="pb-2">Contacto</p>
+                  <p class="pb-2">Pagos</p>
+                  <p class="pb-2">Envios</p>
+                  <p class="mb-5">Cambios</p>
+              </div>
+              <div class="col-sm-12 col-md-8 col-lg-8 text-center pt-5 mb-5">
+                  <H3 class="pb-2"><b> SEGUINOS </b></H3>
+                  <a href="https://gmail.com" class="text-white" id="hrefredes">
+                      <i class="fas fa-envelope fa-2x pr-1 social-icons"></i>
+                  </a>
+                  <a href="https://twitter.com" class="text-white" id="hrefredes">
+                      <i class="fab fa-twitter-square fa-2x pr-1 social-icons"></i>
+                  </a>
+                  <a href="https://facebook.com" class="text-white" id="hrefredes">
+                      <i class="fab fa-facebook-square fa-2x pr-1 social-icons"></i>
+                  </a>
+              </div>
+              <div class="col-sm-12 col-md-2 col-lg-2 text-center pt-3">
+                  <p class="pb-2">Iniciar Sesión</p>
+                  <p class="pb-2">Registrarse</p>
+                  <p class="mb-5">Como comprar</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+  <div class="container-fluid fixed-booton py-1" id="copy-fot">
+      <div class="text-center lead">
+          <h5 class="style py-4">
+              ESTILE @2021 Tienda online. | Todos los derechos reservados.
+          </h5>
+      </div>
+  </div>
+  
+  <!--Fin de Footer-->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://use.fontawesome.com/823835b326.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
