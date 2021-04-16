@@ -17,7 +17,7 @@ function validar() {
     });
     if (pass !== undefined) {
       if (pass.activo) {
-        alert("Estás logueado");
+        alert("Bienvenido");
 
         usuario = {
           id: user.id, //Guardando id del usuario
