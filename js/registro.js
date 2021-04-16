@@ -8,7 +8,7 @@ class Usuario {
     this.activo = activo;
   }
 }
-
+//Linea 12,14,15 descomenta, se guarda los cambios y los volves a comentar para asi crear uno solo
 // let admin = new Usuario(9999, "admin", "Admin", "admin@gmail.com", "admin");
 let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 // usuarios.push(admin);
