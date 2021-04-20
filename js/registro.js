@@ -9,10 +9,10 @@ class Usuario {
   }
 }
 //Linea 12,14,15 descomenta, se guarda los cambios y los volves a comentar para asi crear uno solo
-// let admin = new Usuario(9999, "admin", "Admin", "admin@gmail.com", "admin");
+let admin = new Usuario(9999, "admin", "Admin", "admin@gmail.com", "admin");
 let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-// usuarios.push(admin);
-// localStorage.setItem("usuarios", JSON.stringify(usuarios));
+usuarios.push(admin);
+localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
 //Generar id automático
 function idRandom() {
